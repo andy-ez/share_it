@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
   has_many :votes, as: :voteable
   has_secure_password validations: false
   validates :username, presence: true, uniqueness: { case_sensitive: false }
-  validates :password, presence: true, confirmation: true, on: :new
+  validates :password, presence: true, confirmation: true, on: :create
   validates :password, allow_blank: true, confirmation: true, on: :update
 end
